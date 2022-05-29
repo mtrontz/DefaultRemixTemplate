@@ -6,3 +6,6 @@ node_modules
 .env
 prisma/
 package-lock.json
+**/*.dev.ts
+**/*.dev.tsx
+.dev/*

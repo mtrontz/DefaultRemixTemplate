@@ -1,6 +1,12 @@
 {
     "recommendations": [
         "prisma.prisma",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "vsblox.blox",
+        "shuffle-dev.shuffle-dev",
+        "victorbaudot.html-to-react",
+        "zarifprogrammer.tailwind-snippets",
+        "bourhaouta.tailwindshades",
+        "austenc.tailwind-docs"
     ]
 }
