@@ -1,0 +1,30 @@
+.remix-app__dark {
+    background-color: rgb(7, 7, 7);
+    color: rgb(240, 240, 240);
+  }
+.remix-app__dark > * {
+    background-color: rgb(7, 7, 7);
+    color: rgb(240, 240, 240);
+  }
+.remix-app__light {
+    background-color: rgb(240, 240, 240);
+    color: rgb(7, 7, 7);
+  }
+.remix-app__light > * {
+    background-color: rgb(240, 240, 240);
+    color: rgb(7, 7, 7);
+  }
+.gradient__light {
+  background: rgb(226,226,238);
+  background: -moz-linear-gradient(90deg, rgba(226,226,238,1) 0%, rgba(63,63,140,0.9) 20%, rgba(63,63,140,0.9) 80%, rgba(226,226,238,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(226,226,238,1) 0%, rgba(63,63,140,0.9) 20%, rgba(63,63,140,0.9) 80%, rgba(226,226,238,1) 100%);
+  background: linear-gradient(90deg, rgba(226,226,238,1) 0%, rgba(63,63,140,0.9) 20%, rgba(63,63,140,0.9) 80%, rgba(226,226,238,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e2e2ee",endColorstr="#e2e2ee",GradientType=1);
+}
+.gradient__dark {
+  background: rgb(74,74,99);
+  background: -moz-linear-gradient(90deg, rgba(74,74,99,1) 0%, rgba(24,24,105,1) 20%, rgba(24,24,105,1) 80%, rgba(74,74,99,1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(74,74,99,1) 0%, rgba(24,24,105,1) 20%, rgba(24,24,105,1) 80%, rgba(74,74,99,1) 100%);
+  background: linear-gradient(90deg, rgba(74,74,99,1) 0%, rgba(24,24,105,1) 20%, rgba(24,24,105,1) 80%, rgba(74,74,99,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4a4a63",endColorstr="#4a4a63",GradientType=1);
+}

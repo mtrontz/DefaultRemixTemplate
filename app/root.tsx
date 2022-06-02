@@ -6,16 +6,22 @@ import {
   Scripts,
   ScrollRestoration,
   useCatch,
-  Link
+  Link,
+  json
 } from "remix";
 import type { MetaFunction, LinksFunction, LoaderFunction } from "remix";
 import Header from "~/components/Header"
 // import ContainerStyles from "~/styles/container.styles.css";
-import TempRemixStyles from "~/styles/demos/remix.css";
+import ColorStyles from "~/styles/colors.css";
 import GlobalStyles from "~/styles/global.css";
-import DarkStyles from "~/styles/dark.css";
+import RemixStyles from "~/styles/remix.css";
 import AvatarStyles from "~/styles/css-layouts/avatar.styles.css";
-
+import {
+  ThemeProvider,
+  useTheme,
+  PreventFlashOnWrongTheme,
+  createThemeSessionResolver,
+} from "~/services/theme-services" // 'remix-themes'
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "New Remix App",
@@ -36,15 +42,41 @@ export const meta: MetaFunction = () => ({
      { rel: "stylesheet", href: GlobalStyles },
      {
        rel: "stylesheet",
-       href: DarkStyles,
-       media: "(prefers-color-scheme: dark)",
+       href: ColorStyles,
+       // media: "(prefers-color-scheme: dark)",
      },
-     { rel: "stylesheet", href: TempRemixStyles },
+     { rel: "stylesheet", href: RemixStyles },
      // { rel: "stylesheet", href: "/demos/custom-theme.css" },
-     { rel: "stylesheet", href: AvatarStyles },
+     // { rel: "stylesheet", href: AvatarStyles },
+     // { rel: "manifest", href: "/resources/manifest.webmanifest" },
+     // { rel: "x-icon/ico", href: "/public/favicon.ico" },
   ];
 };
 
+type LoaderData = {
+  ENV:  {
+    VAPID_PUSH_SUBJECT: string;
+    VAPID_PUBLIC_KEY: string;
+    VAPID_PRIVATE_KEY: string;
+  };
+};
+
+export const loader: LoaderFunction = async () => {
+  // const clients = await getClients();
+  // const data: LoaderData = {
+  //   clients: clients.map((c) => ({ id: c.id, name: c.name })),
+  // };
+
+  // https://vapidkeys.com/
+  const data: LoaderData = {
+    ENV: {
+      VAPID_PUSH_SUBJECT: process.env.VAPID_PUSH_SUBJECT ?? "",
+      VAPID_PUBLIC_KEY: process.env.VAPID_PUBLIC_KEY ?? "",
+      VAPID_PRIVATE_KEY: process.env.VAPID_PRIVATE_KEY ?? "",
+    }
+  }
+  return json(data);
+};
 // export default function App() {
 //   return (
 //     <html lang="en">
@@ -93,6 +125,76 @@ function Document({
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         {title ? <title>{title}</title> : null}
         <Meta />
+        <link rel="manifest" href="/resources/manifest.webmanifest" />
+        <link
+          rel="apple-touch-icon"
+          sizes="57x57"
+          href="/icons/apple-icon-57x57.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="60x60"
+          href="/icons/apple-icon-60x60.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="72x72"
+          href="/icons/apple-icon-72x72.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="76x76"
+          href="/icons/apple-icon-76x76.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="114x114"
+          href="/icons/apple-icon-114x114.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="120x120"
+          href="/icons/apple-icon-120x120.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="144x144"
+          href="/icons/apple-icon-144x144.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="/icons/apple-icon-152x152.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/icons/apple-icon-180x180.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/icons/android-icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/icons/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="/icons/favicon-96x96.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/icons/favicon-16x16.png"
+        />
         <Links />
       </head>
       <body>

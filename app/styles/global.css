@@ -3,15 +3,47 @@
  * quick baseline!
  */
  :root {
-    --color-foreground: hsl(0, 0%, 7%);
-    --color-background: hsl(0, 0%, 100%);
-    --color-links: hsl(213, 100%, 52%);
-    --color-links-hover: hsl(213, 100%, 43%);
-    --color-border: hsl(0, 0%, 82%);
-    --font-body: -apple-system, "Segoe UI", Helvetica Neue, Helvetica, Roboto,
-      Arial, sans-serif, system-ui, "Apple Color Emoji", "Segoe UI Emoji";
-  }
+  --font-body: -apple-system, "Segoe UI", Helvetica Neue, Helvetica, Roboto,
+    Arial, sans-serif, system-ui, "Apple Color Emoji", "Segoe UI Emoji";
+
+  --font-weight-100: 100;
+  --font-weight-200: 200;
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
+  --font-weight-900: 900;
+
+  --text-h1: 36px;
+  --text-h2: 32px;
+  --text-h3: 28px;
+  --text-h4: 24px;
+  --text-h5: 20px;
+  --text-h6: 16px;
   
+  --text-sm: 12px;
+  --text-md: 18px;
+  --text-lg: 24px;
+}
+ :root .light {
+    --color-foreground: hsl(0, 0%, 10%);
+    --color-background: hsl(0, 0%, 90%);
+    --color-links: hsl(213, 100%, 50%);
+    --color-links-hover: hsl(213, 100%, 35%);
+    --color-border: hsl(0, 0%, 10%);
+    --color-text: hsl(0, 0%, 10%);
+  }
+  :root .dark {
+    --color-foreground: hsl(0, 0%, 90%);
+    --color-background: hsl(0, 0%, 10%);
+    --color-links: hsl(213, 100%, 50%);
+    --color-links-hover: hsl(213, 100%, 65%);
+    --color-border: hsl(0, 0%, 90%);
+    --color-text: hsl(0, 0%, 90%);
+  }
+
   html {
     box-sizing: border-box;
   }
@@ -44,6 +76,48 @@
     line-height: 1.5;
   }
   
+  .container {
+    display:flex;
+    flex-direction: row;
+    --gutter: 16px;
+    width: 100%;
+    height: 100%;
+    max-width: calc(100% - var(--gutter) * 2);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+  .avatar {
+    /* Center the content */
+    display: inline-block;
+    vertical-align: middle;
+    /* Used to position the content */
+    position: relative;
+    /* Colors */
+    background-color: rgb(240, 240, 240);
+    color: rgb(3, 3, 3);
+    /* Rounded border */
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+  }
+
+  .avatar__image {
+    /* Rounded border */
+    border-radius: 50%;
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+  }
+
+  .avatar__letters {
+    /* Center the content */
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   a {
     color: var(--color-links);
     text-decoration: none;
@@ -87,12 +161,4 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-  }
-  
-  .container {
-    --gutter: 16px;
-    width: 1024px;
-    max-width: calc(100% - var(--gutter) * 2);
-    margin-right: auto;
-    margin-left: auto;
   }
